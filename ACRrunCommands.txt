@@ -1,0 +1,36 @@
+
+
+- Creates the variable for my resource group and container registry name
+ACR='evcontainers'
+RG='425-c9ceb7fe-build-and-run-a-container-using-azure'
+
+
+- Creates my container registry
+az acr create --resource-group $RG 
+--name $ACR --sku Basic --admin-enabled true
+
+
+
+- Switches to the clouddrive directory in my Bash shell environment. 
+cd /home/cloud/clouddrive
+
+
+
+- Creates the docker file 
+echo "FROM hello-world" > EVfirstdockerfile
+
+
+
+- Creates a variable for my docker file name
+DF='EVfirstdockerfile'
+
+
+
+- Creates the docker container repository
+az acr build --image rockstarev/test-example:v1.0.0 --registry $ACR \
+--file $DF /home/cloud/clouddrive (or simply just put a "." to say "current directory)
+
+
+
+- Runs the container repository
+az acr run --registry $ACR --cmd '$Registry/evtest-example:v1.0.0' /dev/null
