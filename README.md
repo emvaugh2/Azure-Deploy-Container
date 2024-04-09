@@ -97,4 +97,6 @@ Lab completed!
 
 Definitely the least understood lab of this course but it's making me want to take a Docker course so I can understand things in more detail. This was fun and forced me to ask Chat GPT a ton of questions to lear more about these three Docker/ACR commands and more about Service Principals. I also learned some more information on the format of Docker files, Linux commands, and which parts of these commands were arbitray to me. There was still a little confusion on why ACR accepted `sample/hello-world:v1` for the lab's --image argument but it wouldn't allow me to put `RockstarEV/test-example:v1.0.0` for mine. It wasn't accepting my registry. Maybe someone can break this down for me. 
 
+I believe I foudn out the issue to the registry/repository:tag issue. I think Bash just didn't like the "RockstarEV". It seems like it's accepting "rockstarev" in the next lab so maybe everything needs to be lower case. 
+
 Anyway, fun lab once I learned what everything meant!
